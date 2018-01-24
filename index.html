@@ -20,16 +20,46 @@
       
       window.addEventListener('resize',function(){
         renderer.setSize(window.innerWidth,window.innerHeight);
-        camera.aspect = window.innerWidth/ window.innerHeight;
+        camera.aspect = window.innerWidth　/ window.innerHeight;
         camera.updateProjectionMatrix();
       },false );
       
-      var gemetry = new THREE.BoxGeometry( 1, 1, 1 );
-      var material = new THREE.MeshBasicMaterial({color: 0xccffcc});
+      var light = new TREE.DirectionalLight(0xccccc);
+      light.position.set(0,100,30);
+      scene.add(Light);
+      scene.add(new THREE.AmbientLight(0x666666));
+      
+      var loader = new THREE.TextureLoader();
+      var geometry = new THREE.BoxGeometry( 1, 32, 16 );
+      var material = new THREE.MeshBasicMaterial({
+        color: 0xccffcc,
+        map: loader.load('')
+      });
       var mesh = new THREE.Mesh( geometry, material );
       scene.add( mesh );
       
-      camera.position.z = S;
+      var particle_geometry = new THREE.Geometry();
+      
+      var numPaeticles = 2000;
+      for(var i =0 ; i < numParticles; i++){
+        perticle_geometry.vertices.push(
+          new THREE.Vector3(
+            Math.random() * 20 - 10,
+            Math.random() * 20 - 10,
+            Math.random() * 20 - 10));
+      }
+      var particle_matrial = new THREE.PointsMaterial({
+        size: 0.01:
+        color: 0x80ffccaa,
+        blending: THREE.additiveBlending,
+        transparent: true;,
+        depthtest: true
+      });
+      
+      var emitter = new THREE.Points(particle_geometry.particle_material);
+      scene.add(emitter);
+      
+      camera.poitiuon.z = 5;
       
       var clock = new THREE.Clock();
       var render = function () {
