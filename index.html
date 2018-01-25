@@ -26,9 +26,9 @@
      },false );
      
      var light = new THREE.DirectionalLight(0xffffffff);
-     light.position.set(10,50,50);
+     light.position.set(100,100,100);
      scene.add(light);
-     scene.add(new THREE.AmbientLight(0xffffff00));
+     scene.add(new THREE.AmbientLight(0xff888888));
      
      var loader = new THREE.TextureLoader();
      var geometry = new THREE.SphereGeometry( 1, 32, 16 );
