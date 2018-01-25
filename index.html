@@ -25,10 +25,10 @@
      camera.updateProjectionMatrix();
      },false );
      
-     var light = new THREE.DirectionalLight(0xffffffff);
-     light.position.set(0,100,40);
+     var light = new THREE.DirectionalLight(0xffff0000);
+     light.position.set(0,100,50);
      scene.add(light);
-     scene.add(new THREE.AmbientLight(0xffff0000));
+     scene.add(new THREE.AmbientLight(0xffffffff));
      
      var loader = new THREE.TextureLoader();
      var geometry = new THREE.SphereGeometry( 1, 32, 16 );
